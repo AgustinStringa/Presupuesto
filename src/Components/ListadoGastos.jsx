@@ -10,12 +10,14 @@ const ListadoGastos = ({ gastos }) => {
           <p>
             {gasto.nombre}{" "}
             <span className="fecha-gasto">
-              {gasto.fecha.getDate() +
+              {new Date(gasto.fecha).getDate() +
                 "/" +
-                (gasto.fecha.getMonth() + 1) +
+                (new Date(gasto.fecha).getMonth() + 1) +
                 "/" +
-                gasto.fecha.getFullYear()}{" "}
-              {gasto.fecha.getHours() + ":" + gasto.fecha.getMinutes()}
+                new Date(gasto.fecha).getFullYear()}{" "}
+              {new Date(gasto.fecha).getHours() +
+                ":" +
+                new Date(gasto.fecha).getMinutes()}
             </span>
             <span className="gasto">${gasto.cantidad}</span>
           </p>
