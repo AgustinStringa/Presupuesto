@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Error from "./Error";
 import { generate } from "shortid";
+import PropTypes from "prop-types";
 
 const FormularioGastos = ({ restante, addSpending }) => {
   const [nombre, setNombre] = useState("");
@@ -74,6 +75,14 @@ const FormularioGastos = ({ restante, addSpending }) => {
       </form>
     </>
   );
+};
+/**
+ * restante es necesario para comprobar que el gasto introducido sea menor al restante
+ * addSpending es la funcion que agrega un elemento al array de gastos (State de la app)
+ */
+FormularioGastos.propTypes = {
+  restante: PropTypes.number.isRequired,
+  addSpending: PropTypes.func.isRequired,
 };
 
 export default FormularioGastos;

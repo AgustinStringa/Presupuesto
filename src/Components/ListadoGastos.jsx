@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ListadoGastos = ({ gastos }) => {
   return (
@@ -23,5 +24,10 @@ const ListadoGastos = ({ gastos }) => {
     </ul>
   );
 };
-
+/**
+ * gastos: es el array que contiene los gastos. Es uno de los states principales de la app.
+ */
+ListadoGastos.propTypes = {
+  gastos: PropTypes.array.isRequired,
+};
 export default ListadoGastos;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Error from "./Error";
+import PropTypes from "prop-types";
 
 const InputPresupuesto = ({ setPresupuesto, setRestante }) => {
   const [cantidad, setCantidad] = useState(0);
@@ -49,6 +50,14 @@ const InputPresupuesto = ({ setPresupuesto, setRestante }) => {
       </div>
     </>
   );
+};
+
+/**
+ * ambas funciones son necesarias para modificar los states principales de la app (presupuesto y restante)
+ */
+InputPresupuesto.propTypes = {
+  setPresupuesto: PropTypes.func.isRequired,
+  setRestante: PropTypes.func.isRequired,
 };
 
 export default InputPresupuesto;

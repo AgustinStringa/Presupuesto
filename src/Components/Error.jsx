@@ -15,7 +15,10 @@ const Error = ({ msg, br }) => {
     </>
   );
 };
-
+/***
+ * br es un array de mensajes que se muestran en la alerta. La característica es que cada elemento del array se escribe en un nuevo renglón
+ * msg es el mensaje principal de la alerta
+ */
 Error.propTypes = {
   br: PropTypes.array,
   msg: PropTypes.string.isRequired,
