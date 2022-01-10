@@ -91,6 +91,11 @@ h2 {
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
+.alert-empty {
+  background-color: #e7e7e7;
+  color: #474747;
+  border-color: #dddddd;
+}
 .gastos-realizados {
   margin-bottom: 2rem;
 }
@@ -102,6 +107,9 @@ h2 {
 }
 .gastos-realizados li:last-of-type {
   margin-bottom: 0 !important;
+}
+.gastos-realizados li:first-of-type {
+  border-top: 1px solid #e1e1e1;
 }
 .gastos-realizados li p {
   display: flex;
@@ -123,4 +131,8 @@ label.input-presupuesto {
   text-transform: uppercase;
   font-size: 2rem;
   color: #004e92;
+}
+
+span.fecha-gasto {
+  font-weight: 800;
 }

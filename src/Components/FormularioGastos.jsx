@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Error from "./Error";
 import { generate } from "shortid";
 
-const FormularioGastos = () => {
+const FormularioGastos = ({ restante, addSpending }) => {
   const [nombre, setNombre] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [error, setError] = useState(false);
@@ -10,14 +10,18 @@ const FormularioGastos = () => {
   const agregarGasto = (evt) => {
     evt.preventDefault();
 
-    if (!nombre || cantidad <= 0 || isNaN(cantidad)) {
+    if (!nombre || cantidad <= 0 || isNaN(cantidad) || cantidad > restante) {
+      alert("puede que estes intentando gastar mas de lo que te queda");
       setError(true);
       return;
     }
     setError(false);
 
-    const nuevoGasto = { nombre, cantidad, id: generate() };
-    console.log(nuevoGasto);
+    const nuevoGasto = { nombre, cantidad, id: generate(), fecha: new Date() };
+    addSpending(nuevoGasto);
+    //limpiar formulario
+    setNombre("");
+    setCantidad(0);
   };
   return (
     <>
@@ -28,7 +32,8 @@ const FormularioGastos = () => {
             msg={"comprueba que todos los valores sean correctos. "}
             br={[
               "No puedes insertar nombres vacíos",
-              "La cantidad debe ser mayor o igual a 0",
+              "La cantidad debe ser mayor a 0",
+              "No puedes gastar más del presupuesto restante",
             ]}
           />
         ) : null}
@@ -41,6 +46,7 @@ const FormularioGastos = () => {
             className="u-full-width"
             placeholder="ej: transporte"
             value={nombre}
+            disabled={restante === 0 ? true : false}
             onChange={(e) => setNombre(e.target.value)}
           />
         </div>
@@ -54,12 +60,14 @@ const FormularioGastos = () => {
             className="u-full-width"
             placeholder="ej: 25"
             value={cantidad}
+            disabled={restante === 0 ? true : false}
             onChange={(e) => setCantidad(Number(e.target.value))}
           />
         </div>
 
         <input
           type="submit"
+          disabled={restante === 0 ? true : false}
           value="AGREGAR GASTO"
           className="button-primary u-full-width"
         />
