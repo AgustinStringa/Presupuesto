@@ -25,9 +25,11 @@ const FormularioGastos = () => {
       <form action="" onSubmit={agregarGasto}>
         {error ? (
           <Error
-            msg={
-              "comprueba que todos los valores sean correctos. \n\r No puedes introducir valores iguales o menores a 0 y todos los campos deben estar completos"
-            }
+            msg={"comprueba que todos los valores sean correctos. "}
+            br={[
+              "No puedes insertar nombres vacíos",
+              "La cantidad debe ser mayor o igual a 0",
+            ]}
           />
         ) : null}
         <div className="campo">
