@@ -4,6 +4,7 @@ import FormularioGastos from './Components/FormularioGastos';
 import ListadoGastos from './Components/ListadoGastos';
 import ExpandirPresupuesto from './Components/ExpandirPresupuesto';
 import ControlRestante from './Components/ControlRestante';
+import { Header, Footer } from '../shared';
 
 function App() {
   const [presupuesto, setPresupuesto] = useState(0);
@@ -25,10 +26,6 @@ function App() {
     }
   }, [])
   useEffect(() => {
-    /**
-     * cargando localstorage
-     */
-    //
     var gastosTotales = 0;
     gastos.forEach((gasto) => {
       gastosTotales += gasto.cantidad;
@@ -56,11 +53,9 @@ function App() {
     setGastos([]);
   }
   return (
-    <>
-      <div className="container">
-        <header>
-          <h1>Presupuesto</h1>
-        </header>
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <Header title="Presupuesto Semanal" variant="primary" />
+      <div className="container" style={{ flex: 1 }}>
         <main className='contenido contenido-principal '>
           {presupuesto ? (
             <>
@@ -76,9 +71,8 @@ function App() {
                 </div>
               </div>
               <div className='row contenido'>
-                <div className='one-half column'>
+                <div className='one-half column flex flex-col gap-y-3'>
                   <button type='button' className='u-full-width' onClick={guardarDatos} >Guardar datos</button>
-                  <br />
                   <button type='button' className='u-full-width' onClick={eliminarDatos} >Eliminar datos guardados</button>
                 </div>
               </div>
@@ -87,9 +81,12 @@ function App() {
 
         </main>
       </div>
-
-
-    </>
+      <Footer
+        title="Administración de Presupuesto"
+        description="Lleva el control de tu presupuesto semanal y gastos en tiempo real."
+        variant="dark"
+      />
+    </div>
   );
 }
 

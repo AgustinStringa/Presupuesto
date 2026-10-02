@@ -31,7 +31,7 @@ const InputPresupuesto = ({ setPresupuesto, setRestante }) => {
           <Error msg={`El presupuesto ${cantidad} no es válido`} />
         ) : null}
 
-        <form action="" onSubmit={handleSubmit}>
+        <form action="" onSubmit={handleSubmit} className="flex flex-col gap-y-3">
           <label htmlFor="input-presupuesto" className="input-presupuesto">
             Ingresa tu presupuesto semanal (en pesos)
           </label>

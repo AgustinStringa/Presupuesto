@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const ExpandirPresupuesto = ({ expandirPresupuesto }) => {
   return (
     <div className="campo">
-      <form onSubmit={expandirPresupuesto}>
+      <form onSubmit={expandirPresupuesto} className="flex flex-col gap-y-3">
         <label htmlFor="">Expande tu presupuesto</label>
         <input type="number" className="u-full-width input-expandir" />
 

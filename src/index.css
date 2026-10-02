@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 :root {
   --title-white: rgba(255, 255, 255, 0.842);
 }
@@ -6,64 +7,161 @@
 html {
   box-sizing: border-box;
 }
+
 *,
 *::after,
 *::before {
   font-family: "Fira Sans", sans-serif;
+  box-sizing: inherit;
 }
 
-.alert p {
-  margin-bottom: 0 !important;
-}
 body {
-  background: #000428; /* fallback for old browsers */
+  background: #000428;
+  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #004e92, #000428);
   background: linear-gradient(to right, #004e92, #000428);
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
-header {
-  margin: 30px 0;
+
+/* Base Layout & Grid Fallbacks (Replacing Skeleton CSS) */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.column,
+.columns {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.one-half.column {
+  flex: 0 0 calc(50% - 1.5rem);
+  max-width: calc(50% - 1.5rem);
+}
+
+@media (max-width: 768px) {
+  .one-half.column {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Button & Form Controls Defaults */
+button,
+input[type="submit"],
+input[type="button"] {
+  height: 42px;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid #004e92;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+button.button-primary,
+input[type="submit"].button-primary {
+  color: #fff;
+  background-color: #004e92;
+  border-color: #004e92;
+}
+
+button.button-primary:hover,
+input[type="submit"].button-primary:hover {
+  background-color: #003666;
+  border-color: #003666;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  height: 42px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #004e92;
+  outline: none;
+}
+
 .contenido {
   padding: 20px;
 }
+
 .contenido-principal {
   background-color: white;
   padding: 30px;
   border-radius: 20px;
 }
+
 .presupuesto p {
   margin-bottom: 0;
   font-weight: bold;
 }
+
 .presupuesto p span {
   font-weight: normal;
 }
+
 #gastos {
   margin-bottom: 30px;
 }
+
 h1 {
   font-weight: 200;
   color: var(--title-white);
   text-align: center;
-  font-size: 4.8rem !important;
 }
+
 h2 {
   font-weight: 400;
   color: #004e92;
   margin-bottom: 30px;
-  font-size: 3rem !important;
   text-align: center;
   text-transform: uppercase;
 }
+
 .campo {
   margin-bottom: 2rem;
 }
+
 .error {
   text-align: center;
 }
+
 .alert {
   position: relative;
   padding: 0.75rem 1.25rem;
@@ -72,68 +170,79 @@ h2 {
   border-radius: 0.25rem;
   font-weight: 600;
 }
+
 .alert-primary {
   color: #004085;
   background-color: #cce5ff;
   border-color: #b8daff;
 }
+
 .alert-success {
   color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
+
 .alert-danger {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
 }
+
 .alert-warning {
   color: #856404;
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
+
 .alert-empty {
   background-color: #e7e7e7;
   color: #474747;
   border-color: #dddddd;
 }
+
 .gastos-realizados {
   margin-bottom: 2rem;
 }
+
 .gastos-realizados li {
   list-style: none;
   margin-bottom: 0rem;
   border-bottom: 1px solid #e1e1e1;
   padding: 1rem 0;
 }
+
 .gastos-realizados li:last-of-type {
   margin-bottom: 0 !important;
 }
+
 .gastos-realizados li:first-of-type {
   border-top: 1px solid #e1e1e1;
 }
+
 .gastos-realizados li p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0;
 }
+
 .gastos-realizados li p .gasto {
   background-color: #004085;
   padding: 1rem;
   color: white;
 }
 
-/*MY STYLES*/
-/* form {
-  margin-bottom: 0;
-} */
 label.input-presupuesto {
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #004e92;
 }
 
 span.fecha-gasto {
   font-weight: 800;
+}
+
+.shared-header-nav-desktop li {
+  margin-bottom: 0 !important;
 }
