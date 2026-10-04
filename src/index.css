@@ -25,7 +25,7 @@ body {
   font-family: sans-serif;
 }
 
-/* Base Layout & Grid Fallbacks (Replacing Skeleton CSS) */
+/* Base Layout & Grid Fallbacks */
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -150,7 +150,6 @@ h2 {
   font-weight: 400;
   color: #004e92;
   margin-bottom: 30px;
-  text-align: center;
   text-transform: uppercase;
 }
 
