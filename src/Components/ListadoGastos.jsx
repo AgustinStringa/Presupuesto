@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { formatDate, formatTime } from "../../shared";
 
 const ListadoGastos = ({ gastos }) => {
   return (
@@ -10,14 +11,7 @@ const ListadoGastos = ({ gastos }) => {
           <p>
             {gasto.nombre}{" "}
             <span className="fecha-gasto">
-              {new Date(gasto.fecha).getDate() +
-                "/" +
-                (new Date(gasto.fecha).getMonth() + 1) +
-                "/" +
-                new Date(gasto.fecha).getFullYear()}{" "}
-              {new Date(gasto.fecha).getHours() +
-                ":" +
-                new Date(gasto.fecha).getMinutes()}
+              {formatDate(gasto.fecha, "DD/MM/YYYY")} {formatTime(gasto.fecha)}
             </span>
             <span className="gasto">${gasto.cantidad}</span>
           </p>
@@ -26,6 +20,8 @@ const ListadoGastos = ({ gastos }) => {
     </ul>
   );
 };
+
+
 /**
  * gastos: es el array que contiene los gastos. Es uno de los states principales de la app.
  */
