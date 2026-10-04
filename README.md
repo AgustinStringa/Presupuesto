@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Administrador de Presupuesto Semanal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación web desarrollada con **React** y **Vite** para gestionar y controlar el presupuesto semanal y los gastos personales en tiempo real.
 
-## Available Scripts
+## Descripción
 
-In the project directory, you can run:
+La aplicación permite al usuario definir un presupuesto monetario inicial y llevar un registro detallado de cada gasto (concepto y monto). A medida que se agregan gastos, calcula automáticamente el saldo restante y ajusta alertas visuales de advertencia según el porcentaje de saldo disponible, permitiendo además expandir el presupuesto y persistir los datos en el navegador.
 
-### `npm start`
+## Características principales
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Gestión interactiva del presupuesto:**
+  - Definición de presupuesto inicial con validación numérica.
+  - Registro de gastos con descripción, monto y generación de identificadores únicos (`shortid`).
+  - Posibilidad de expandir o adicionar fondos al presupuesto existente en cualquier momento.
+- **Alertas dinámicas por porcentaje de saldo:**
+  - Lógica modular en helper (`control-restante-helper.js`) que asigna estilos visuales en función del presupuesto remanente:
+    - **Verde (éxito):** Más del 75% disponible.
+    - **Amarillo (advertencia):** Entre el 50% y el 75% disponible.
+    - **Rojo (peligro):** Menos del 50% disponible o saldo agotado.
+- **Persistencia local:** Botones dedicados para guardar o limpiar el estado completo (presupuesto, saldo restante y listado de gastos) en `localStorage`.
+- **Componentes compartidos:** Integración de encabezado y pie de página compartidos (`Header`, `Footer`) del espacio de trabajo.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Stack tecnológico
 
-### `npm test`
+- **React 17** (Hooks: `useState`, `useEffect`, PropTypes)
+- **Vite** (Build tool y servidor de desarrollo ultrarrápido)
+- **Tailwind CSS v4** y estilos CSS modulares
+- **shortid** para la generación de claves e identificadores de elementos
+- **Vitest** y **Testing Library** para pruebas unitarias de componentes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Scripts disponibles
 
-### `npm run build`
+En el directorio del proyecto puedes ejecutar:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Iniciar servidor de desarrollo en http://localhost:5173
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Compilar para producción
+npm run build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Previsualizar el bundle de producción
+npm run preview
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Ejecutar tests con Vitest
+npm test -- --run
+```
