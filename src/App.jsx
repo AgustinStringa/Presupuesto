@@ -53,9 +53,9 @@ function App() {
     setGastos([]);
   }
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <div className="flex min-h-dvh flex-col">
       <Header title="Presupuesto Semanal" variant="primary" />
-      <div className="container" style={{ flex: 1 }}>
+      <div className="container flex-1">
         <main className='contenido contenido-principal '>
           {presupuesto ? (
             <>
