@@ -1,0 +1,1 @@
+- [x] opciones iniciales comenzando por 50, 80, 100, 150
